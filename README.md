@@ -1,56 +1,31 @@
-# CodeIgniter 4 Framework
+# Todo Server
 
-## What is CodeIgniter?
+## What Is This
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Todo Server is a toy program that uses CodeIgniter and SQLite to store users and their to-do lists, and then emails them to remind them of their tasks.
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Why Is This
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+It's been a while since I touched CodeIgniter, and CodeIgniter has moved on to its fourth major version in the meantime. I figured, now that I was out of college, but still unemployed, now was a perfect time to do a quick little hobby project to brush up on my skills.
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+Well, that and my friend Tim- great guy, love 'im to bits- suggested it, and I didn't have any good arguments to *not* do this. So, here we are.
 
+## Setup Process
 
-## Important Change with index.php
+1. Pick a server to host this on. I used a Raspberry Pi 4, because that's what I had handy.
+2. Go through the customary process to prepare your server to host CodeIgniter. There are plenty of guides for this, and I cannot do a better job than they have. CodeIgniter's own userguide can be found [here](https://codeigniter4.github.io/userguide/).
+3. Upload this repository to the root of your CodeIgniter environment.
+4. Create a blank file titled `login_db.sqlite` in the root of your CodeIgniter environment, and then, using the SQLite tool of your choice, run the following query:
+`CREATE TABLE users(
+    user_id INTEGER PRIMARY KEY,
+    user_name VARCHAR(100),
+    user_email VARCHAR(100),
+    user_password VARCHAR(200),
+    user_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)`
+This file is not included as a security feature. Do not put your login database on github.
+5. Smoke Test, and enjoy.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Credits
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Contributing
-
-We welcome contributions from the community.
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+I used [this tutorial](https://mfikri.com/en/blog/codeigniter4-login-register) to put together the login functionality.
