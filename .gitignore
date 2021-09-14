@@ -125,3 +125,7 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+#-------------------------
+# User-Defined Database Files
+#-------------------------
+login_db.sqlite
