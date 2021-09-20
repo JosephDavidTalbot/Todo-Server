@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+.scrollable {
+    height: 600px;
+    overflow-y: auto;
+}
