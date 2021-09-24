@@ -42,9 +42,12 @@ $routes->get('/login/logout', 'Login::logout');
 $routes->get('/logout', 'Login::logout');
 $routes->get('/login', 'Login::index');
 //$routes->get('register/save', 'Register::save');
+
 $routes->get('/register', 'Register::index');
-$routes->match(['get','post'],'register/save', 'Register::save');
+$routes->match(['get','post'],'/register/save', 'Register::save');
+
 $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
+$routes->match(['get','post'],'/dashboard/create', 'Dashboard::create');
 $routes->get('/', 'Dashboard::index',['filter' => 'auth']);
 //$routes->get('/', 'Pages::view');
 //$routes->get('(:any)', 'Pages::view/$1');
