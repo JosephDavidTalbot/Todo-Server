@@ -36,9 +36,17 @@ $routes->setDefaultController('Pages');
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
+//$routes->get('/login/auth', 'Login::auth');
+$routes->match(['get','post'],'/login/auth', 'Login::auth'); //This is a syntax I was wholly unaware was necessary for this sort of thing. Either I read the documentation wrong, or the documentation needs to be better.
+$routes->get('/login/logout', 'Login::logout');
+$routes->get('/logout', 'Login::logout');
+$routes->get('/login', 'Login::index');
+//$routes->get('register/save', 'Register::save');
+$routes->get('/register', 'Register::index');
+$routes->match(['get','post'],'register/save', 'Register::save');
+$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->get('/', 'Pages::view');
 $routes->get('(:any)', 'Pages::view/$1');
-$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

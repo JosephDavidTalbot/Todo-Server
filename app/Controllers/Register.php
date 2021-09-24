@@ -32,7 +32,7 @@ class Register extends Controller
                 'user_email'    => $this->request->getVar('email'),
                 'user_password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
-            $model->save($data);
+            $model->insert($data);
             return redirect()->to('/login');
         }else{
             $data['validation'] = $this->validator;
