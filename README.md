@@ -22,8 +22,17 @@ Well, that and my friend Tim- great guy, love 'im to bits- suggested it, and I d
     user_email VARCHAR(100),
     user_password VARCHAR(200),
     user_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)`
-This file is not included as a security feature. Do not put your login database on github.
+);
+CREATE TABLE events(
+	event_id INTEGER PRIMARY KEY,
+	event_user INTEGER,
+	event_title VARCHAR(50),
+	event_body VARCHAR(200),
+	event_date TIMESTAMP,
+	event_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY(event_user) REFERENCES users(user_id)
+);`
+This file is not included as a security feature. Do not put your login database on github. Adapting the SQLite to MySQL is left as an exercise to the reader.
 5. Smoke Test, and enjoy.
 
 ## Credits

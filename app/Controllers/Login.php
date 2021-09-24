@@ -8,7 +8,13 @@ class Login extends Controller
     public function index()
     {
         helper(['form']);
-        echo view('login');
+        $data = [];
+        $data['title'] = 'Login'; // Capitalize the first letter
+        $data['css'] = "";
+        echo view('templates/header', $data);
+        echo view('pages/login', $data);
+        echo view('templates/footer', $data);
+        //echo view('login');
     }
 
     public function auth()
@@ -46,4 +52,4 @@ class Login extends Controller
         $session->destroy();
         return redirect()->to('/login');
     }
-} 
+}

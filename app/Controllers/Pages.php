@@ -19,6 +19,9 @@ class Pages extends Controller
         }
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
+        if($page == 'home') {
+            $data['title'] = 'To-Do Server';
+        }
         $data['css'] = "";
 
         echo view('templates/header', $data);

@@ -19,8 +19,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 $routes->setDefaultNamespace('App\Controllers');
 /*$routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');*/
-$routes->setDefaultController('Pages');
-$routes->setDefaultMethod('view');
+$routes->setDefaultController('Dashboard');
+$routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(false);
@@ -45,8 +45,9 @@ $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Register::index');
 $routes->match(['get','post'],'register/save', 'Register::save');
 $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
-$routes->get('/', 'Pages::view');
-$routes->get('(:any)', 'Pages::view/$1');
+$routes->get('/', 'Dashboard::index',['filter' => 'auth']);
+//$routes->get('/', 'Pages::view');
+//$routes->get('(:any)', 'Pages::view/$1');
 
 /*
  * --------------------------------------------------------------------

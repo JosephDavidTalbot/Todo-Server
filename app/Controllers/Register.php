@@ -10,7 +10,11 @@ class Register extends Controller
         //include helper form
         helper(['form']);
         $data = [];
-        echo view('register', $data);
+        $data['title'] = 'Register'; // Capitalize the first letter
+        $data['css'] = "";
+        echo view('templates/header', $data);
+        echo view('pages/register', $data);
+        echo view('templates/footer', $data);
     }
 
     public function save()
