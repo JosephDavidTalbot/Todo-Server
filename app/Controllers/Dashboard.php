@@ -14,7 +14,7 @@ class Dashboard extends Controller
         $id = $session->get('user_id');
 
         $data['title'] = 'To-Do Dashboard';
-        $data['css'] = "";
+        $data['css'] = '<link href="assets/css/main.css" rel="stylesheet">';
         $data['user_name'] = $session->get('user_name');
         $data['user_id'] = $id;
         $data['events'] = $model->getEvents($id);

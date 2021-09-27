@@ -9,13 +9,13 @@
                 <?= csrf_field() ?>
                 <input type="hidden" name="user_id" value=<?= $user_id; ?> />
 
-                <label style="display: inline-block; width: 100px;" for="title">Event Title:</label>
+                <label class="form-label" for="title">Event Title:</label>
                 <input type="input" name="title" /><br />
 
-                <label style="display: inline-block; width: 100px;" for="body">Text:</label>
+                <label class="form-label" for="body">Text:</label>
                 <textarea name="body"></textarea><br />
 
-                <label style="display: inline-block; width: 100px;" for="start">Event Date:</label>
+                <label class="form-label" for="start">Event Date:</label>
                 <input type="date" name="event_date"></br>
 
                 <input type="submit" name="submit" value="Create new event" />
