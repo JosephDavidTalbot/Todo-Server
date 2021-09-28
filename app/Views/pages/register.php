@@ -1,5 +1,4 @@
         <div class="row justify-content-md-center">
-
             <div class="col-6">
                 <h1>Sign Up</h1>
                 <?php if(isset($validation)):?>
@@ -25,5 +24,4 @@
                     <button type="submit" class="btn btn-primary">Register</button>
                 </form>
             </div>
-
         </div>

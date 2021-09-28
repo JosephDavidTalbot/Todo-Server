@@ -46,6 +46,10 @@ $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Register::index');
 $routes->match(['get','post'],'/register/save', 'Register::save');
 
+$routes->get('/profile', 'Profile::index');
+$routes->match(['get','post'],'/profile/edit', 'Profile::edit');
+$routes->match(['get','post'],'/profile/changePassword', 'Profile::changePassword');
+
 $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 $routes->match(['get','post'],'/dashboard/create', 'Dashboard::create');
 $routes->get('/', 'Dashboard::index',['filter' => 'auth']);

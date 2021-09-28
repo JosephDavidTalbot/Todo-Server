@@ -9,12 +9,11 @@ class Login extends Controller
     {
         helper(['form']);
         $data = [];
-        $data['title'] = 'Login'; // Capitalize the first letter
-        $data['css'] = "";
+        $data['title'] = 'Login'; 
+        $data['css'] = '';
         echo view('templates/header', $data);
         echo view('pages/login', $data);
         echo view('templates/footer', $data);
-        //echo view('login');
     }
 
     public function auth()
